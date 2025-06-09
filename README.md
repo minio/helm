@@ -30,9 +30,9 @@ Other Kubernetes providers may also work.
 
 ## MinIO Helm charts Repo
 
-helm.min.dev repo is the official MinIO Helm repo for the enterprise products. You can add it with the following command:
+helm.min.io repo is the official MinIO Helm repo for the enterprise products. You can add it with the following command:
 ```shell
-helm repo add minio https://helm.min.dev/
+helm repo add minio https://helm.min.io/
 helm repo update
 ```
 
