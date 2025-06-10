@@ -39,6 +39,12 @@ helm repo update
 When you add the repo, you can see the available charts with the following command:
 ```shell
 helm search repo minio
+NAME                             	CHART VERSION	APP VERSION        	DESCRIPTION                                      
+local/aistor-keymanager          	1.0.0        	                   	Helm chart for MinIO AIStor Key Manager          
+local/aistor-keymanager-operator 	1.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Key Manager operator 
+local/aistor-objectstore         	1.0.3        	                   	Helm chart for MinIO AIStor Object Store         
+local/aistor-objectstore-operator	4.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Object Store operator
+local/aistor-volumemanager       	0.1.0        	5.0.0              	DirectPV - AIStor Volume Manager          
 ```
 
 ## AIStor Volume Manager
