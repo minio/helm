@@ -73,6 +73,30 @@ helm install aistor minio/aistor-objectstore-operator \
   --set global.license="<your-license-key>"
 ```
 
+### 🔐 License Configuration
+
+To use the `aistor-objectstore-operator`, you must pass a valid license via the `global.license` field.
+
+> ⚠️ **Important:** Do **not** pass the encrypted license block (starts with `ZXlK...`). The operator expects a **valid JWT string** (typically starts with `eyJ...`).
+
+#### ✅ Correct usage (decoded JWT):
+
+```bash
+helm install aistor minio/aistor-objectstore-operator \
+  --namespace aistor --create-namespace \
+  --set global.license="eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9..."
+```
+
+#### ❌ Incorrect usage (encrypted blob):
+
+```bash
+helm install aistor minio/aistor-objectstore-operator \
+  --namespace aistor --create-namespace \
+  --set global.license="ZXlKaGJHY2lPaUpGVXpNNE5DSXNJ..."
+```
+
+If you are unsure how to get the decoded license token (JWT), please contact your support representative or open a SUBNET request.
+
 ### AIStor Object Store
 
 Now you are ready to create your own AIStor object store, get the values.yaml file from the chart and edit it to your needs.
