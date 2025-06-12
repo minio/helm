@@ -54,7 +54,6 @@ You can install the AIStor Volume Manager CSI with the following command:
 
 ```shell
 helm install directpv minio/aistor-volumemanager \
-  --namespace aistor --create-namespace \
   --set global.license="<your-license-key>"
 ```
 
