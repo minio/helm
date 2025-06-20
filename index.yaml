@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aistor-keymanager:
   - apiVersion: v2
-    created: "2025-06-13T10:40:50.36215-07:00"
+    created: "2025-06-20T11:54:43.360712-07:00"
     description: Helm chart for MinIO AIStor Key Manager
     digest: 66810d1c72f47b4aaaa7fa36d35ac53d209679f787a78c642331a07f999d045d
     home: https://min.io
@@ -18,12 +18,12 @@ entries:
     - https://github.com/minio/aistor
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-keymanager-1.0.0.tgz
+    - https://helm.min.dev/helm-releases/aistor-keymanager-1.0.0.tgz
     version: 1.0.0
   aistor-keymanager-operator:
   - apiVersion: v2
     appVersion: v20250603065135.0.0
-    created: "2025-06-13T10:40:50.362786-07:00"
+    created: "2025-06-20T11:54:43.361226-07:00"
     description: Helm chart for MinIO AIStor Key Manager operator
     digest: 5c71a03ed230260108d63eddf27b5c5dc1388595a418a8ec2fa1ced2ffab2161
     home: https://min.io
@@ -38,11 +38,11 @@ entries:
     - https://min.io/product/aistor/key-management-server
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-keymanager-operator-1.0.0.tgz
+    - https://helm.min.dev/helm-releases/aistor-keymanager-operator-1.0.0.tgz
     version: 1.0.0
   aistor-objectstore:
   - apiVersion: v2
-    created: "2025-06-13T10:40:50.363296-07:00"
+    created: "2025-06-20T11:54:43.361724-07:00"
     description: Helm chart for MinIO AIStor Object Store
     digest: c154bb96796c3a57e27f30d39f1b771a3b112daffe28596b8831d401078dc74d
     home: https://min.io
@@ -59,12 +59,12 @@ entries:
     - https://github.com/minio/aistor
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-objectstore-1.0.3.tgz
+    - https://helm.min.dev/helm-releases/aistor-objectstore-1.0.3.tgz
     version: 1.0.3
   aistor-objectstore-operator:
   - apiVersion: v2
     appVersion: v20250603065135.0.0
-    created: "2025-06-13T10:40:50.365742-07:00"
+    created: "2025-06-20T11:54:43.364969-07:00"
     description: Helm chart for MinIO AIStor Object Store operator
     digest: 1909cc9861b6198db2f2e37e1a4b52ed891ca5b609c025f161ca548479ac234c
     home: https://min.io
@@ -82,11 +82,11 @@ entries:
     - https://min.io/product/aistor-overview
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-objectstore-operator-4.0.1.tgz
+    - https://helm.min.dev/helm-releases/aistor-objectstore-operator-4.0.1.tgz
     version: 4.0.1
   - apiVersion: v2
     appVersion: v20250603065135.0.0
-    created: "2025-06-13T10:40:50.364783-07:00"
+    created: "2025-06-20T11:54:43.36335-07:00"
     description: Helm chart for MinIO AIStor Object Store operator
     digest: f6092229a0a3c63623942d9864f2d3305876bdf907e042c8fa717b773a0191c9
     home: https://min.io
@@ -104,12 +104,29 @@ entries:
     - https://min.io/product/aistor-overview
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-objectstore-operator-4.0.0.tgz
+    - https://helm.min.dev/helm-releases/aistor-objectstore-operator-4.0.0.tgz
     version: 4.0.0
   aistor-volumemanager:
   - apiVersion: v2
     appVersion: 5.0.0
-    created: "2025-06-13T10:40:50.366308-07:00"
+    created: "2025-06-20T11:54:43.365825-07:00"
+    description: DirectPV - AIStor Volume Manager
+    digest: bccc013dc271b77e396e8c894678f89a3b6233ee795e1412de5fc8f69b70b078
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-volumemanager
+    type: application
+    urls:
+    - https://helm.min.dev/helm-releases/aistor-volumemanager-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 5.0.0
+    created: "2025-06-20T11:54:43.36562-07:00"
     description: DirectPV - AIStor Volume Manager
     digest: c89b368a281f8a893bc08ce10919fd0900957d3f35f84343541da7d4b30d3c94
     home: https://min.io
@@ -122,11 +139,11 @@ entries:
     name: aistor-volumemanager
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-volumemanager-0.1.1.tgz
+    - https://helm.min.dev/helm-releases/aistor-volumemanager-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 5.0.0
-    created: "2025-06-13T10:40:50.366113-07:00"
+    created: "2025-06-20T11:54:43.365328-07:00"
     description: DirectPV - AIStor Volume Manager
     digest: dd4d4690acc17c019a3b93b499e62556d05d66eddf99cffe8d3de7351b074ccb
     home: https://min.io
@@ -139,6 +156,6 @@ entries:
     name: aistor-volumemanager
     type: application
     urls:
-    - https://helm.min.io/helm-releases/aistor-volumemanager-0.1.0.tgz
+    - https://helm.min.dev/helm-releases/aistor-volumemanager-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-13T10:40:50.361566-07:00"
+generated: "2025-06-20T11:54:43.360145-07:00"
