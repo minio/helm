@@ -44,7 +44,7 @@ minio/aistor-keymanager          	1.0.0        	                   	Helm chart f
 minio/aistor-keymanager-operator 	1.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Key Manager operator 
 minio/aistor-objectstore         	1.0.3        	                   	Helm chart for MinIO AIStor Object Store         
 minio/aistor-objectstore-operator	4.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Object Store operator
-minio/aistor-volumemanager       	0.1.2        	5.0.0              	DirectPV - AIStor Volume Manager          
+minio/aistor-volumemanager       	0.1.3        	5.0.0              	DirectPV - AIStor Volume Manager          
 ```
 
 ## AIStor Volume Manager
@@ -54,7 +54,7 @@ You can install the AIStor Volume Manager CSI with the following command:
 
 ```shell
 helm install directpv minio/aistor-volumemanager \
-  --set global.license="<your-license-key>"
+  --set license="<your-license-key>"
 ```
 
 ## AIStor Object Store Operator
