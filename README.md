@@ -27,21 +27,21 @@ You can run MinIO Helm charts on Kubernetes providers such as
 
 Other Kubernetes providers may also work.
 
-## AIStor Helm Repository
+## MinIO Helm Repository
 
 ```shell
-helm repo add minio-rc https://helm-rc.min.dev/
+helm repo add minio https://helm.min.io/
 helm repo update
 ```
 
 When you add the repo, you can see the available charts with the following command:
 ```shell
 helm search repo minio
-NAME                             	CHART VERSION	APP VERSION        	DESCRIPTION                                      
-minio/aistor-keymanager          	1.0.0        	                   	Helm chart for MinIO AIStor Key Manager          
-minio/aistor-keymanager-operator 	1.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Key Manager operator 
+NAME                                   	CHART VERSION	APP VERSION        	DESCRIPTION                                      
+minio/aistor-keymanager          	2.0.1        	                   	Helm chart for MinIO AIStor Key Manager          
+minio/aistor-keymanager-operator 	1.1.0        	v20250701011319.0.0	Helm chart for MinIO AIStor Key Manager operator 
 minio/aistor-objectstore         	1.0.3        	                   	Helm chart for MinIO AIStor Object Store         
-minio/aistor-objectstore-operator	4.0.0        	v20250603065135.0.0	Helm chart for MinIO AIStor Object Store operator
+minio/aistor-objectstore-operator	4.1.0        	v20250701011319.0.0	Helm chart for MinIO AIStor Object Store operator
 minio/aistor-volumemanager       	0.1.3        	5.0.0              	DirectPV - AIStor Volume Manager          
 ```
 
