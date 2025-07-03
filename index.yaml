@@ -169,6 +169,23 @@ entries:
   aistor-volumemanager:
   - apiVersion: v2
     appVersion: 5.0.0
+    created: "2025-07-03T17:18:08.550836067+02:00"
+    description: DirectPV - AIStor Volume Manager
+    digest: a5e875ae287e874a59231adf183061f2ba721407751e2d225009a14b51636ca1
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-volumemanager
+    type: application
+    urls:
+    - https://helm.min.io/helm-releases/aistor-volumemanager-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 5.0.0
     created: "2025-07-01T09:50:41.041143-07:00"
     description: DirectPV - AIStor Volume Manager
     digest: 268f4aa040e9ac9c1e106387d61fb4012813c667dc8c78436df93b776c956dd7
@@ -235,4 +252,4 @@ entries:
     urls:
     - https://helm.min.io/helm-releases/aistor-volumemanager-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-01T09:50:41.034376-07:00"
+generated: "2025-07-03T17:15:06.897600348+02:00"
