@@ -99,6 +99,26 @@ entries:
     version: 1.0.0
   aistor-objectstore:
   - apiVersion: v2
+    created: "2025-07-10T16:42:14.432550764+02:00"
+    description: Helm chart for MinIO AIStor Object Store
+    digest: af0d6033fcb8baf8eb09628e1d558dd4e8bc49378d799690c6709f3ab000b9ca
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-objectstore
+    sources:
+    - https://github.com/minio/aistor
+    type: application
+    urls:
+    - https://helm.min.io/helm-releases/aistor-objectstore-1.0.5.tgz
+    version: 1.0.5
+  - apiVersion: v2
     created: "2025-07-01T09:50:41.036217-07:00"
     description: Helm chart for MinIO AIStor Object Store
     digest: c154bb96796c3a57e27f30d39f1b771a3b112daffe28596b8831d401078dc74d
