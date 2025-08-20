@@ -262,7 +262,7 @@ entries:
     appVersion: v20250801184927.0.0
     created: "2025-08-08T09:17:29.238982685+02:00"
     description: Helm chart for MinIO AIStor Object Store operator
-    digest: 659dcf932630537148ae3ddde195a547bd84ad245bf712332b3f8154842f2be7
+    digest: 0e6fe555c618fc0e53dbef6e91a8eff87bc3d6e6cb44898c0ebc4b45afeaef16
     home: https://min.io
     icon: https://min.io/resources/img/logo/MINIO_wordmark.png
     keywords:
