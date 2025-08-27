@@ -61,6 +61,25 @@ entries:
   aistor-keymanager-operator:
   - apiVersion: v2
     appVersion: v20250819175300.0.0
+    created: "2025-08-27T15:02:58.622394644+02:00"
+    description: Helm chart for MinIO AIStor Key Manager operator
+    digest: 4e617607222e05ee1137dc1e4713ae26836861f136e70a33295433c07417bd7d
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - Key Management
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-keymanager-operator
+    sources:
+    - https://min.io/product/aistor/key-management-server
+    type: application
+    urls:
+    - https://helm.min.io/helm-releases/aistor-keymanager-operator-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
+    appVersion: v20250819175300.0.0
     created: "2025-08-19T22:04:59.508388997+02:00"
     description: Helm chart for MinIO AIStor Key Manager operator
     digest: 8a3eb70868378d24d5ae6c2d51b8afbdf3935df1b07eabff49e2d240028fdfbe
@@ -236,6 +255,28 @@ entries:
     - https://helm.min.io/helm-releases/aistor-objectstore-1.0.3.tgz
     version: 1.0.3
   aistor-objectstore-operator:
+  - apiVersion: v2
+    appVersion: v20250819175300.0.0
+    created: "2025-08-27T15:02:58.682301406+02:00"
+    description: Helm chart for MinIO AIStor Object Store operator
+    digest: df90729ab7b8e205ae94f9ad6685e9582a1b28361d673adb23962a0d8da222b9
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - Enterprise Object Storage
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-objectstore-operator
+    sources:
+    - https://min.io/product/aistor-overview
+    type: application
+    urls:
+    - https://helm.min.io/helm-releases/aistor-objectstore-operator-5.1.0.tgz
+    version: 5.1.0
   - apiVersion: v2
     appVersion: v20250819175300.0.0
     created: "2025-08-19T22:04:59.537304635+02:00"
