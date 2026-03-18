@@ -175,9 +175,9 @@ entries:
     version: 1.0.0
   aistor-objectstore:
   - apiVersion: v2
-    created: "2026-03-18T21:02:01.03996232+01:00"
+    created: "2026-03-18T21:19:52.555337141+01:00"
     description: Helm chart for MinIO AIStor Object Store
-    digest: 98f49abb297a5d3d3fc3510b826247be717a28d9e0cb3c95f991098e11a35768
+    digest: 53d55832887cdee5e68361d45960bdc29f0e363ded2b21cf0c8180fb9c55fdde
     home: https://min.io
     icon: https://helm.min.io/logo.png
     keywords:
@@ -574,9 +574,9 @@ entries:
   aistor-operator:
   - apiVersion: v2
     appVersion: v20260318173617.0.0
-    created: "2026-03-18T21:02:01.06787026+01:00"
+    created: "2026-03-18T21:19:52.585201893+01:00"
     description: Helm chart for MinIO AIStor operators
-    digest: fb06e5f78461bbbfa58cf65429365aeb0eafa86be4c62c700a582cd1a2e4597f
+    digest: 680146e2e0c830b72bfe8cd5d4fcd96227f269ae3ca0dc1c6e746bfac8cc5a1e
     home: https://min.io
     icon: https://helm.min.io/logo.png
     keywords:
@@ -889,9 +889,9 @@ entries:
   minkms-operator:
   - apiVersion: v2
     appVersion: v20260318173617.0.0
-    created: "2026-03-18T21:02:01.074328722+01:00"
+    created: "2026-03-18T21:19:52.592287501+01:00"
     description: Helm chart for MinIO AIStor Key Manager operator
-    digest: 1549f19fd88eac850708ff83e4851864e2f95bbb3ddf4bf157ec2d4286d0cad3
+    digest: 4b60b3aaa00f7c1ed503275785cde07384233c605326166541ed73a57a667224
     home: https://min.io
     icon: https://helm.min.io/logo.png
     keywords:
