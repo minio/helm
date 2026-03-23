@@ -592,7 +592,7 @@ entries:
     - https://min.io/product/aistor-overview
     type: application
     urls:
-    - https://helm-releases/aistor-operator-5.5.1.tgz
+    - https://helm.min.io/helm-releases/aistor-operator-5.5.1.tgz
     version: 5.5.1
   - apiVersion: v2
     appVersion: v20260318173617.0.0
