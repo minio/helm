@@ -574,6 +574,28 @@ entries:
   aistor-operator:
   - apiVersion: v2
     appVersion: v20260318173617.0.0
+    created: "2026-03-27T17:52:11.16279827+01:00"
+    description: Helm chart for MinIO AIStor operators
+    digest: 1258508fc37eaedd0ea9643f862ae2f0558f562ccf6eefa2f84b37e5d21accdf
+    home: https://min.io
+    icon: https://helm.min.io/logo.png
+    keywords:
+    - Enterprise Object Storage
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: aistor-operator
+    sources:
+    - https://min.io/product/aistor-overview
+    type: application
+    urls:
+    - https://helm.min.io/helm-releases/aistor-operator-5.5.2.tgz
+    version: 5.5.2
+  - apiVersion: v2
+    appVersion: v20260318173617.0.0
     created: "2026-03-21T19:33:12.485167+01:00"
     description: Helm chart for MinIO AIStor operators
     digest: f374998b3a9c6366cd7c3293fe5abe8d593136472f339c8a437782004e04746f
