@@ -573,6 +573,28 @@ entries:
       version: 4.0.0
   aistor-operator:
     - apiVersion: v2
+      appVersion: v20260411082401.0.0
+      created: "2026-04-13T10:08:58.209036495+02:00"
+      description: Helm chart for MinIO AIStor operators
+      digest: 80e8a65a0a78c93610e71748f3f233e3618605b82afcde74a28b808e6535529f
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Enterprise Object Storage
+        - storage
+        - object-storage
+        - S3
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: aistor-operator
+      sources:
+        - https://min.io/product/aistor-overview
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/aistor-operator-5.6.1.tgz
+      version: 5.6.1
+    - apiVersion: v2
       appVersion: v20260402210825.0.0
       created: "2026-04-03T12:04:50.779838786+02:00"
       description: Helm chart for MinIO AIStor operators
@@ -972,6 +994,25 @@ entries:
       version: 2.2.0
   minkms-operator:
     - apiVersion: v2
+      appVersion: v20260411082401.0.0
+      created: "2026-04-13T10:08:58.219786578+02:00"
+      description: Helm chart for MinIO AIStor Key Manager operator
+      digest: 7b9a3d70ab744ec75c17006601232de7b626c68cf4837a82e5ca6999dda2e06d
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Key Management
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-operator
+      sources:
+        - https://min.io/product/aistor/key-management-server
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-operator-1.5.1.tgz
+      version: 1.5.1
+    - apiVersion: v2
       appVersion: v20260402210825.0.0
       created: "2026-04-03T12:04:50.788221055+02:00"
       description: Helm chart for MinIO AIStor Key Manager operator
@@ -1058,4 +1099,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-04-03T12:05:20.841272737+02:00"
+generated: "2026-04-13T10:08:58.150274774+02:00"
