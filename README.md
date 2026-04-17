@@ -11,9 +11,9 @@ AIStor runs in Kubernetes.
 
 ## Pre-requisites
 
-* An active Kubernetes environment running a [maintained version](https://kubernetes.io/releases/)
-* [`kubectl` CLI tool](https://kubernetes.io/docs/tasks/tools/#kubectl)
-* [`helm` CLI tool](https://helm.sh/docs/intro/install/)
+- An active Kubernetes environment running a [maintained version](https://kubernetes.io/releases/)
+- [`kubectl` CLI tool](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- [`helm` CLI tool](https://helm.sh/docs/intro/install/)
 
 ### Environment
 
@@ -35,6 +35,7 @@ helm repo update
 ```
 
 When you add the repo, you can see the available charts with the following command:
+
 ```shell
 helm search repo minio
 ```
