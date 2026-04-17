@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository purpose
 
-This repo is the **MinIO AIStor Helm chart repository** served at https://helm.min.io/ (CNAME in `CNAME`, GitHub Pages via `_config.yml`). It is **not** a source repository for the charts themselves — upstream chart source lives in other MinIO repos (e.g., https://github.com/minio/aistor). This repo only hosts packaged `.tgz` chart artifacts and the `index.yaml` that `helm repo add` consumes.
+This repo is the **MinIO AIStor Helm chart repository** served at https://helm.min.io/ (CNAME in `CNAME`, GitHub Pages via `_config.yml`). It is **not** a source repository for the charts themselves — upstream chart source lives in other MinIO repos. This repo only hosts packaged `.tgz` chart artifacts and the `index.yaml` that `helm repo add` consumes.
 
 ## Layout
 
