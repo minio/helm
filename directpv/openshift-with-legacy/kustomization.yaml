@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../legacy
+  - ../openshift
+
+images:
+  - name: quay.io/minio/csi-node-driver-registrar
+    newName: registry.redhat.io/openshift4/ose-csi-node-driver-registrar-rhel8
+    digest: sha256:b61fcc8774f2dde2ed46df52630b495ff8f5bb53a80a4733006b0197297b0264
+
+  - name: quay.io/minio/livenessprobe
+    newName: registry.redhat.io/openshift4/ose-csi-livenessprobe-rhel8
+    digest: sha256:a516448355b6c360953151ed14c1b9eaf977a674a9ff65216d3076ddc9355987
+
+  - name: quay.io/minio/csi-provisioner
+    newName: registry.redhat.io/openshift4/ose-csi-external-provisioner-rhel8
+    digest: sha256:ecf86bed1b174e57b9b52ebf5c2792da25d7ab2daccef15bdac98a47aa09ff3e
+
+  - name: quay.io/minio/csi-resizer
+    newName: registry.redhat.io/openshift4/ose-csi-external-resizer-rhel8
+    digest: sha256:370f6a90b4792ac9275b355f17b457c8348d3230fd2d272c8a447513ba3473b8

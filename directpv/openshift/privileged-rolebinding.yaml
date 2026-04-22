@@ -1,0 +1,23 @@
+#HELM+# {{- if (include "directpv.isOpenShift" $) }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  #HELM+# annotations:
+    #HELM+# {{- with $.Values.annotations }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  #HELM+# labels:
+    #HELM+# {{- with $.Values.labels }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  name: system:openshift:scc:privileged
+  namespace: directpv
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:privileged
+subjects:
+  - kind: ServiceAccount
+    name: directpv-min-io
+    namespace: directpv
+#HELM+# {{- end }}
