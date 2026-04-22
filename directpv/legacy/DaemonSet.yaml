@@ -1,0 +1,226 @@
+#HELM+# {{- if eq (include "directpv.isLegacy" $) "true" }}
+#HELM+# {{ with .Values.nodeserver }}
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  #HELM+# annotations:
+    #HELM+# {{- with $.Values.annotations }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  labels:
+    application-name: directpv.min.io
+    application-type: CSIDriver
+    directpv.min.io/created-by: kubectl-directpv
+    directpv.min.io/version: v1beta1
+    #HELM+# {{- with $.Values.labels }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  name: legacy-node-server
+  namespace: directpv
+spec:
+  selector:
+    matchLabels:
+      selector.directpv.min.io: directpv-min-io-legacy-node-server
+      #HELM+# {{- with .podLabels }}
+      #HELM+# {{ . | toYaml | nindent 6 }}
+      #HELM+# {{- end }}
+  template:
+    metadata:
+      annotations:
+        created-by: kubectl-directpv
+        #HELM+# {{- with .podAnnotations }}
+        #HELM+# {{ . | toYaml | nindent 8 }}
+        #HELM+# {{- end }}
+      labels:
+        selector.directpv.min.io: directpv-min-io-legacy-node-server
+        selector.directpv.min.io.service: enabled
+        #HELM+# {{- with .podLabels }}
+        #HELM+# {{ . | toYaml | nindent 8 }}
+        #HELM+# {{- end }}
+      name: legacy-node-server
+      namespace: directpv
+    spec:
+      containers:
+      - args:
+        - --csi-address=unix:///csi/csi.sock
+        - --v=3 #HELM-#
+        - --kubelet-registration-path=/var/lib/kubelet/plugins/direct-csi-min-io/csi.sock #HELM-#
+        #HELM+# - --v={{ $.Values.legacyCSINodeDriverRegistrarVerboseLevel | default 3 }}
+        #HELM+# - --kubelet-registration-path={{ (include "directpv.kubeletDirPath" $) }}/plugins/direct-csi-min-io/csi.sock
+        env:
+        - name: KUBE_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        image: quay.io/minio/csi-node-driver-registrar@sha256:183b3ac969d133457595fa2abfd9d81d20e83a6bc4606375662d036f56462dde #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiNodeDriverRegistrar" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        name: node-driver-registrar
+        terminationMessagePath: /var/log/driver-registrar-termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+        - mountPath: /registration
+          mountPropagation: None
+          name: registration-dir
+      - args:
+        - legacy-node-server
+        - --csi-endpoint=$(CSI_ENDPOINT)
+        - --kube-node-name=$(KUBE_NODE_NAME)
+        - --v=3 #HELM-#
+        #HELM+# - --v={{ $.Values.legacyDirectPVNodeServerVerboseLevel | default 3 }}
+        #HELM+# {{- if $.Values.kubeAPIQPS }}
+        #HELM+# - --kube-api-qps={{ $.Values.kubeAPIQPS | float64 }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.kubeAPIBurst }}
+        #HELM+# - --kube-api-burst={{ $.Values.kubeAPIBurst | int }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.rack }}
+        #HELM+# - --rack={{ $.Values.rack }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.zone }}
+        #HELM+# - --zone={{ $.Values.zone }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.region }}
+        #HELM+# - --region={{ $.Values.region }}
+        #HELM+# {{- end }}
+        env:
+        - name: KUBE_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: CSI_ENDPOINT
+          value: unix:///csi/csi.sock
+        image: quay.io/minio/directpv@sha256:1add60387c6714470907ef109711042947959de6bc80ddd02107e76fa79abaa2 #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "directpv" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /healthz
+            port: healthz
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          timeoutSeconds: 10
+        name: node-server
+        ports:
+        - containerPort: 9898
+          name: healthz
+          protocol: TCP
+        - containerPort: 10443
+          name: metrics
+          protocol: TCP
+        securityContext:
+          privileged: true
+          #HELM+# {{- with .seccompLocalhostProfile }}
+          #HELM+# seccompProfile:
+          #HELM+#   type: Localhost
+          #HELM+#   localhostProfile: {{ . }}
+          #HELM+# {{- end }}
+        terminationMessagePath: /var/log/driver-termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+        - mountPath: /var/lib/kubelet/pods #HELM-#
+        #HELM+# - mountPath: {{ (include "directpv.kubeletDirPath" $) }}/pods
+          mountPropagation: Bidirectional
+          name: mountpoint-dir
+        - mountPath: /var/lib/kubelet/plugins #HELM-#
+        #HELM+# - mountPath: {{ (include "directpv.kubeletDirPath" $) }}/plugins
+          mountPropagation: Bidirectional
+          name: plugins-dir
+        - mountPath: /var/lib/directpv/
+          mountPropagation: Bidirectional
+          name: directpv-common-root
+        - mountPath: /var/lib/direct-csi/
+          mountPropagation: Bidirectional
+          name: direct-csi-common-root
+        - mountPath: /sys
+          mountPropagation: Bidirectional
+          name: sysfs
+        - mountPath: /dev
+          mountPropagation: HostToContainer
+          name: devfs
+          readOnly: true
+        - mountPath: /run/udev/data
+          mountPropagation: Bidirectional
+          name: run-udev-data-dir
+          readOnly: true
+      - args:
+        - --csi-address=/csi/csi.sock
+        - --health-port=9898
+        image: quay.io/minio/livenessprobe@sha256:af8bac7b24bbfcc064e58d45c1c2ebaf75b9ac71315a604e0870100fa6aed8da #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "livenessprobe" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        name: liveness-probe
+        terminationMessagePath: /var/log/driver-liveness-termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+      #HELM+# {{- with $.Values.images.pullSecrets }}
+      #HELM+# imagePullSecrets:
+      #HELM+# {{- . | toYaml | nindent 8 }}
+      #HELM+# {{- end }}
+      #HELM+# nodeSelector:
+      #HELM+# {{- with .nodeSelector }}
+      #HELM+# {{- . | toYaml | nindent 8 }}
+      #HELM+# {{- end }}
+      #HELM+# tolerations:
+      #HELM+# {{- with .tolerations }}
+      #HELM+# {{- . | toYaml | nindent 8 }}
+      #HELM+# {{- end }}
+      hostPID: true
+      serviceAccountName: directpv-min-io
+      volumes:
+      - hostPath:
+          path: /var/lib/kubelet/plugins/direct-csi-min-io #HELM-#
+          #HELM+# path: {{ (include "directpv.kubeletDirPath" $) }}/plugins/direct-csi-min-io
+          type: DirectoryOrCreate
+        name: socket-dir
+      - hostPath:
+          path: /var/lib/kubelet/pods #HELM-#
+          #HELM+# path: {{ (include "directpv.kubeletDirPath" $) }}/pods
+          type: DirectoryOrCreate
+        name: mountpoint-dir
+      - hostPath:
+          path: /var/lib/kubelet/plugins_registry #HELM-#
+          #HELM+# path: {{ (include "directpv.kubeletDirPath" $) }}/plugins_registry
+          type: DirectoryOrCreate
+        name: registration-dir
+      - hostPath:
+          path: /var/lib/kubelet/plugins #HELM-#
+          #HELM+# path: {{ (include "directpv.kubeletDirPath" $) }}/plugins
+          type: DirectoryOrCreate
+        name: plugins-dir
+      - hostPath:
+          path: /var/lib/directpv/
+          type: DirectoryOrCreate
+        name: directpv-common-root
+      - hostPath:
+          path: /var/lib/direct-csi/
+          type: DirectoryOrCreate
+        name: direct-csi-common-root
+      - hostPath:
+          path: /sys
+          type: DirectoryOrCreate
+        name: sysfs
+      - hostPath:
+          path: /dev
+          type: DirectoryOrCreate
+        name: devfs
+      - hostPath:
+          path: /run/udev/data
+          type: DirectoryOrCreate
+        name: run-udev-data-dir
+  updateStrategy:
+    type: RollingUpdate
+#HELM+# {{ end }}
+#HELM+# {{ end }}

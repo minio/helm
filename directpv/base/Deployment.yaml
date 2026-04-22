@@ -1,0 +1,142 @@
+#HELM+# {{ with .Values.controller }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    directpv.min.io/image-tag: v5.1.2
+    #HELM+# {{- with $.Values.annotations }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  labels:
+    application-name: directpv.min.io
+    application-type: CSIDriver
+    directpv.min.io/created-by: kubectl-directpv
+    directpv.min.io/version: v1beta1
+    #HELM+# {{- with $.Values.labels }}
+    #HELM+# {{- . | toYaml | nindent 4 }}
+    #HELM+# {{- end }}
+  name: controller
+  namespace: directpv
+spec:
+  replicas: 3 #HELM-#
+  #HELM+# replicas: {{ .replicas }}
+  selector:
+    matchLabels:
+      selector.directpv.min.io: controller-controller
+      #HELM+# {{- with .podLabels }}
+      #HELM+# {{ . | toYaml | nindent 6 }}
+      #HELM+# {{- end }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        created-by: kubectl-directpv
+        #HELM+# {{- with .podAnnotations }}
+        #HELM+# {{ . | toYaml | nindent 8 }}
+        #HELM+# {{- end }}
+      labels:
+        selector.directpv.min.io: controller-controller
+        #HELM+# {{- with .podLabels }}
+        #HELM+# {{ . | toYaml | nindent 8 }}
+        #HELM+# {{- end }}
+      name: controller
+      namespace: directpv
+    spec:
+      #HELM+# {{- if $.Values.controller.hostNetwork }}
+      #HELM+# hostNetwork: true
+      #HELM+# dnsPolicy: ClusterFirstWithHostNet
+      #HELM+# {{- end }}
+      containers:
+      - args:
+        - --timeout=300s
+        - --csi-address=$(CSI_ENDPOINT)
+        - --leader-election
+        - --feature-gates=Topology=true
+        - --strict-topology
+        - --v=3 #HELM-#
+        #HELM+# - --v={{ $.Values.csiProvisionerVerboseLevel | default 3 }}
+        env:
+        - name: CSI_ENDPOINT
+          value: unix:///csi/csi.sock
+        image: quay.io/minio/csi-provisioner@sha256:f83e880ce4290b1ef4fa15a588138eafecdb40106208a5295c0b24d03cbaddbd #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiProvisioner" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        name: csi-provisioner
+        securityContext:
+          privileged: true
+        terminationMessagePath: /var/log/controller-provisioner-termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+      - args:
+        - --timeout=300s
+        - --csi-address=$(CSI_ENDPOINT)
+        - --leader-election
+        - --v=3 #HELM-#
+        #HELM+# - --v={{ $.Values.csiResizerVerboseLevel | default 3 }}
+        env:
+        - name: CSI_ENDPOINT
+          value: unix:///csi/csi.sock
+        image: quay.io/minio/csi-resizer@sha256:cb338f5c5a9f781f289b6f25fedebbeeb4eec9fda2aeb2c0a1eaa8529c4c9738 #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiResizer" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        name: csi-resizer
+        securityContext:
+          privileged: true
+          #HELM+# {{ with .podSecurityContext }}
+          #HELM+# {{ . | toYaml | nindent 10 }}
+          #HELM+# {{ end }}
+        terminationMessagePath: /var/log/controller-csi-resizer-termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+      - args:
+        - controller
+        - --csi-endpoint=$(CSI_ENDPOINT)
+        - --kube-node-name=$(KUBE_NODE_NAME)
+        - --v=3 #HELM-#
+        #HELM+# - --v={{ $.Values.directpvControllerVerboseLevel | default 3 }}
+        #HELM+# {{- if $.Values.identity }}
+        #HELM+# - --identity={{ $.Values.identity }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.kubeAPIQPS }}
+        #HELM+# - --kube-api-qps={{ $.Values.kubeAPIQPS | float64 }}
+        #HELM+# {{- end }}
+        #HELM+# {{- if $.Values.kubeAPIBurst }}
+        #HELM+# - --kube-api-burst={{ $.Values.kubeAPIBurst | int }}
+        #HELM+# {{- end }}
+        env:
+        - name: KUBE_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: CSI_ENDPOINT
+          value: unix:///csi/csi.sock
+        image: quay.io/minio/directpv@sha256:1add60387c6714470907ef109711042947959de6bc80ddd02107e76fa79abaa2 #HELM-#
+        #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "directpv" "root" $) }}
+        #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
+        name: controller
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /csi
+          mountPropagation: None
+          name: socket-dir
+      #HELM+# {{- with $.Values.images.pullSecrets }}
+      #HELM+# imagePullSecrets:
+      #HELM+# {{- . | toYaml | nindent 8 }}
+      #HELM+# {{- end }}
+      serviceAccountName: directpv-min-io
+      volumes:
+      - hostPath:
+          path: /var/lib/kubelet/plugins/controller-controller #HELM-#
+          #HELM+# path: {{ (include "directpv.kubeletDirPath" $) }}/plugins/controller-controller
+          type: DirectoryOrCreate
+        name: socket-dir
+#HELM+# {{ end }}
