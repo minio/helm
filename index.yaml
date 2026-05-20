@@ -1061,6 +1061,25 @@ entries:
   minkms-operator:
     - apiVersion: v2
       appVersion: v20260413102716.0.0
+      created: "2026-05-20T20:06:49.847170591+02:00"
+      description: Helm chart for MinIO AIStor Key Manager operator
+      digest: 250e0ac726dfecec30d67e6e564c7e15395b296f10b721558845ae9d0139d5ac
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Key Management
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-operator
+      sources:
+        - https://min.io/product/aistor/key-management-server
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-operator-1.5.3.tgz
+      version: 1.5.3
+    - apiVersion: v2
+      appVersion: v20260413102716.0.0
       created: "2026-04-15T08:57:06.230535+02:00"
       description: Helm chart for MinIO AIStor Key Manager operator
       digest: 8c72ef81503b0f5befcadc2f83afb7a2efd5832b7b93b04704022d104f3596f6
@@ -1184,4 +1203,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-05-12T20:40:13.056422261+02:00"
+generated: "2026-05-20T20:06:49.74910954+02:00"
