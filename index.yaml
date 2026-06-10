@@ -1043,6 +1043,25 @@ entries:
       version: v5.0.6
   minkms:
     - apiVersion: v2
+      created: "2026-06-10T14:03:25.435322282+02:00"
+      description: Helm chart for MinIO AIStor Key Manager
+      digest: 6124df6f814d251dfc5b91cc2fe9341b5f328d2e35b4203f00289b0184d569fb
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - key-manager
+        - kms
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms
+      sources:
+        - https://github.com/minio/aistor
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-2.4.0.tgz
+      version: 2.4.0
+    - apiVersion: v2
       created: "2026-04-03T12:04:50.784469244+02:00"
       description: Helm chart for MinIO AIStor Key Manager
       digest: 6ae4e3ca946e949d67b1cf36000509297f4f336f90f4b3734d10a265f2ea16f4
@@ -1244,4 +1263,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-06-10T10:54:49.621145817+02:00"
+generated: "2026-06-10T14:03:25.29828546+02:00"
