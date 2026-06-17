@@ -998,9 +998,9 @@ entries:
   directpv:
     - apiVersion: v2
       appVersion: 5.1.2
-      created: "2026-06-16T23:14:15.562359-04:00"
+      created: "2026-06-16T23:24:16.86589-04:00"
       description: DirectPV
-      digest: d4f68c846f44b3496730ac779c51882da65c6a0e9ffc1cdb1710fb30b8775499
+      digest: 1f430ff7acdc9682cbbcc6b332d4d64f610007afe23dafb5a4e3a1aa72f97d22
       home: https://min.io
       icon: https://helm.min.io/logo.png
       keywords:
@@ -1280,4 +1280,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-06-16T23:14:15.52014-04:00"
+generated: "2026-06-16T23:24:16.821985-04:00"
