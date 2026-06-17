@@ -997,6 +997,23 @@ entries:
       version: 0.1.0
   directpv:
     - apiVersion: v2
+      appVersion: 5.1.2
+      created: "2026-06-16T23:24:16.86589-04:00"
+      description: DirectPV
+      digest: 1f430ff7acdc9682cbbcc6b332d4d64f610007afe23dafb5a4e3a1aa72f97d22
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - storage
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: directpv
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/directpv-0.4.4.tgz
+      version: 0.4.4
+    - apiVersion: v2
       appVersion: 5.1.0
       created: "2026-04-03T12:04:50.783558107+02:00"
       description: DirectPV
@@ -1263,4 +1280,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-06-10T14:03:25.29828546+02:00"
+generated: "2026-06-16T23:24:16.821985-04:00"
