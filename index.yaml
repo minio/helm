@@ -1116,7 +1116,47 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/minkms-2.2.0.tgz
       version: 2.2.0
+  minkms-enclave:
+    - apiVersion: v2
+      created: "2026-07-08T22:19:46.934572+02:00"
+      description: Helm chart to declaratively provision a MinIO AIStor Key Manager enclave with its identities and keys
+      digest: 6c3e33484388694f8f4ec9871fe35739df63ffe1c8708cd46719e90a5d315aea
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - key-manager
+        - kms
+        - enclave
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-enclave
+      sources:
+        - https://github.com/minio/aistor
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-enclave-1.0.0-rc.1.tgz
+      version: 1.0.0-rc.1
   minkms-operator:
+    - apiVersion: v2
+      appVersion: v20260610050221.0.0
+      created: "2026-07-08T22:19:46.939499+02:00"
+      description: Helm chart for MinIO AIStor Key Manager operator
+      digest: 70d6a2959ea6479bde7677d699c824cc69352ffd6f09ca041da820072b6c4b59
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Key Management
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-operator
+      sources:
+        - https://min.io/product/aistor/key-management-server
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-operator-1.7.0-rc.1.tgz
+      version: 1.7.0-rc.1
     - apiVersion: v2
       appVersion: v20260610050221.0.0
       created: "2026-06-10T10:54:49.697923512+02:00"
@@ -1280,4 +1320,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-06-16T23:24:16.821985-04:00"
+generated: "2026-07-08T22:19:46.89094+02:00"
