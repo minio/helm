@@ -573,6 +573,28 @@ entries:
       version: 4.0.0
   aistor-operator:
     - apiVersion: v2
+      appVersion: v20260714194205.0.0
+      created: "2026-07-15T00:46:52.142778+02:00"
+      description: Helm chart for MinIO AIStor operators
+      digest: ae2657b32d30f5ab0f9a2608ea7e74f86322776b487668cd94ba8de482f37c80
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Enterprise Object Storage
+        - storage
+        - object-storage
+        - S3
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: aistor-operator
+      sources:
+        - https://min.io/product/aistor-overview
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/aistor-operator-5.8.0.tgz
+      version: 5.8.0
+    - apiVersion: v2
       appVersion: v20260610050221.0.0
       created: "2026-06-10T10:54:49.681765229+02:00"
       description: Helm chart for MinIO AIStor operators
@@ -1118,6 +1140,26 @@ entries:
       version: 2.2.0
   minkms-enclave:
     - apiVersion: v2
+      created: "2026-07-15T00:48:11.970718+02:00"
+      description: Helm chart to declaratively provision a MinIO AIStor Key Manager enclave with its identities and keys
+      digest: 8d925d11b5304991ca6d218824f5080e73cdda11d49903f68f4e2bc13d135c0a
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - key-manager
+        - kms
+        - enclave
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-enclave
+      sources:
+        - https://github.com/minio/aistor
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-enclave-1.0.0.tgz
+      version: 1.0.0
+    - apiVersion: v2
       created: "2026-07-08T22:19:46.934572+02:00"
       description: Helm chart to declaratively provision a MinIO AIStor Key Manager enclave with its identities and keys
       digest: 6c3e33484388694f8f4ec9871fe35739df63ffe1c8708cd46719e90a5d315aea
@@ -1138,6 +1180,25 @@ entries:
         - https://helm.min.io/helm-releases/minkms-enclave-1.0.0-rc.1.tgz
       version: 1.0.0-rc.1
   minkms-operator:
+    - apiVersion: v2
+      appVersion: v20260714194205.0.0
+      created: "2026-07-15T00:46:52.153744+02:00"
+      description: Helm chart for MinIO AIStor Key Manager operator
+      digest: 716a4ed17b2fc681728996903aff1c09cb556f4c52eed27a41f29884dd49d93f
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Key Management
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-operator
+      sources:
+        - https://min.io/product/aistor/key-management-server
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-operator-1.7.0.tgz
+      version: 1.7.0
     - apiVersion: v2
       appVersion: v20260610050221.0.0
       created: "2026-07-08T22:19:46.939499+02:00"
@@ -1309,6 +1370,27 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/minkms-operator-1.2.0.tgz
       version: 1.2.0
+  sidekick-operator:
+    - apiVersion: v2
+      appVersion: v20260714215022.0.0
+      created: "2026-07-15T00:46:52.15401+02:00"
+      description: Helm chart for the MinIO AIStor Sidekick sidecar injection operator
+      digest: 33d43fcb72a31b7de3a0e666bf2aad85fa32a52ef4f6e2d13bf64b98fa430689
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Load Balancer
+        - Sidekick
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: sidekick-operator
+      sources:
+        - https://github.com/minio/sidekick
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/sidekick-operator-1.0.0.tgz
+      version: 1.0.0
   warp:
     - apiVersion: v2
       appVersion: latest
@@ -1320,4 +1402,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-07-08T22:19:46.89094+02:00"
+generated: "2026-07-15T00:48:11.932345+02:00"
