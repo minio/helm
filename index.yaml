@@ -175,6 +175,26 @@ entries:
       version: 1.0.0
   aistor-objectstore:
     - apiVersion: v2
+      created: "2026-07-15T01:11:42.081193+02:00"
+      description: Helm chart for MinIO AIStor Object Store
+      digest: 2b5c301be974556e477ef477f9bc66e1256043a0caf35bd0cd6f3908e900b0d3
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - storage
+        - object-storage
+        - S3
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: aistor-objectstore
+      sources:
+        - https://github.com/minio/aistor
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/aistor-objectstore-1.0.15.tgz
+      version: 1.0.15
+    - apiVersion: v2
       created: "2026-04-03T12:04:50.742822977+02:00"
       description: Helm chart for MinIO AIStor Object Store
       digest: c3acc5a8b7ef0801ae62b7e9a0a1e38c526165f4073845139e30fbe0db83365b
@@ -1082,6 +1102,25 @@ entries:
       version: v5.0.6
   minkms:
     - apiVersion: v2
+      created: "2026-07-15T01:11:42.112991+02:00"
+      description: Helm chart for MinIO AIStor Key Manager
+      digest: 4ae116cfa39f38dd9b641df06ca57e46a553761692752d4173ddc92c4c89de60
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - key-manager
+        - kms
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms
+      sources:
+        - https://github.com/minio/aistor
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-2.5.0.tgz
+      version: 2.5.0
+    - apiVersion: v2
       created: "2026-06-10T14:03:25.435322282+02:00"
       description: Helm chart for MinIO AIStor Key Manager
       digest: 6124df6f814d251dfc5b91cc2fe9341b5f328d2e35b4203f00289b0184d569fb
@@ -1402,4 +1441,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-07-15T00:48:11.932345+02:00"
+generated: "2026-07-15T01:11:42.074973+02:00"
