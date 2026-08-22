@@ -8,16 +8,16 @@ resources:
 images:
   - name: quay.io/minio/csi-node-driver-registrar
     newName: registry.redhat.io/openshift4/ose-csi-node-driver-registrar-rhel8
-    digest: sha256:b61fcc8774f2dde2ed46df52630b495ff8f5bb53a80a4733006b0197297b0264
+    digest: sha256:d4c4fa9f857e73ae1aa49b9d6465a594e6a0c5fd72ef405c695f9e574ee290d8
 
   - name: quay.io/minio/livenessprobe
     newName: registry.redhat.io/openshift4/ose-csi-livenessprobe-rhel8
-    digest: sha256:a516448355b6c360953151ed14c1b9eaf977a674a9ff65216d3076ddc9355987
+    digest: sha256:7fbc65be0a6042e02a7d5de622a2941fc13f91edb2657e1884a6aa39c2af37fb
 
   - name: quay.io/minio/csi-provisioner
     newName: registry.redhat.io/openshift4/ose-csi-external-provisioner-rhel8
-    digest: sha256:ecf86bed1b174e57b9b52ebf5c2792da25d7ab2daccef15bdac98a47aa09ff3e
+    digest: sha256:67c72fd618ad457b58bcef5ed9c08d2418c1d38c3616509f0a310011cf378f27
 
   - name: quay.io/minio/csi-resizer
     newName: registry.redhat.io/openshift4/ose-csi-external-resizer-rhel8
-    digest: sha256:370f6a90b4792ac9275b355f17b457c8348d3230fd2d272c8a447513ba3473b8
+    digest: sha256:e69858ab415a56d1371c77cf2c55fcd3b62f41bc79b5f45a43746256611180a7

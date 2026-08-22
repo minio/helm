@@ -53,11 +53,11 @@ function push_image() {
 }
 
 function main() {
-    push_image "quay.io/minio/livenessprobe:v2.18.0-0" # quay.io/minio/livenessprobe@sha256:af8bac7b24bbfcc064e58d45c1c2ebaf75b9ac71315a604e0870100fa6aed8da
-    push_image "quay.io/minio/csi-node-driver-registrar:v2.16.0-0" # quay.io/minio/csi-node-driver-registrar@sha256:183b3ac969d133457595fa2abfd9d81d20e83a6bc4606375662d036f56462dde
-    push_image "quay.io/minio/csi-provisioner:v6.2.0-0" # quay.io/minio/csi-provisioner@sha256:f83e880ce4290b1ef4fa15a588138eafecdb40106208a5295c0b24d03cbaddbd
-    push_image "quay.io/minio/csi-resizer:v2.1.0-0" # quay.io/minio/csi-resizer@sha256:cb338f5c5a9f781f289b6f25fedebbeeb4eec9fda2aeb2c0a1eaa8529c4c9738
-    push_image "quay.io/minio/directpv:v5.1.2" # quay.io/minio/directpv@sha256:1add60387c6714470907ef109711042947959de6bc80ddd02107e76fa79abaa2
+    push_image "quay.io/minio/livenessprobe:v2.19.0-0" # quay.io/minio/livenessprobe@sha256:471eff92da0a2112417919f18e5636897fe4adb05d3160134e9124e97fc84e4f
+    push_image "quay.io/minio/csi-node-driver-registrar:v2.17.0-0" # quay.io/minio/csi-node-driver-registrar@sha256:9188486550743b7f1f8b387ec60e81ada54fc2cdf03e9f27682dcb99f8d0dece
+    push_image "quay.io/minio/csi-provisioner:v6.3.0-0" # quay.io/minio/csi-provisioner@sha256:8c4b1729a67156f6fa9483b580046e44cdf86665c5b17ccd8779666b27572516
+    push_image "quay.io/minio/csi-resizer:v2.2.1-0" # quay.io/minio/csi-resizer@sha256:f42beff6500aab8d239fd2c0e4c43db98320a51e10fe1c8728b5014744a23f0f
+    push_image "quay.io/minio/directpv:v5.1.3" # quay.io/minio/directpv@sha256:dfce1cb76d6d4d0e3e74eb78b151727223b0651f143863cc8a73663b23bc02fb
 }
 
 init "$@"

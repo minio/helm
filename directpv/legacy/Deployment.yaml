@@ -55,7 +55,7 @@ spec:
         env:
         - name: CSI_ENDPOINT
           value: unix:///csi/csi.sock
-        image: quay.io/minio/csi-provisioner@sha256:f83e880ce4290b1ef4fa15a588138eafecdb40106208a5295c0b24d03cbaddbd #HELM-#
+        image: quay.io/minio/csi-provisioner@sha256:8c4b1729a67156f6fa9483b580046e44cdf86665c5b17ccd8779666b27572516 #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiProvisioner" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         name: csi-provisioner
@@ -76,7 +76,7 @@ spec:
         env:
         - name: CSI_ENDPOINT
           value: unix:///csi/csi.sock
-        image: quay.io/minio/csi-resizer@sha256:cb338f5c5a9f781f289b6f25fedebbeeb4eec9fda2aeb2c0a1eaa8529c4c9738 #HELM-#
+        image: quay.io/minio/csi-resizer@sha256:f42beff6500aab8d239fd2c0e4c43db98320a51e10fe1c8728b5014744a23f0f #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiResizer" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         name: csi-resizer
@@ -111,7 +111,7 @@ spec:
               fieldPath: spec.nodeName
         - name: CSI_ENDPOINT
           value: unix:///csi/csi.sock
-        image: quay.io/minio/directpv@sha256:1add60387c6714470907ef109711042947959de6bc80ddd02107e76fa79abaa2 #HELM-#
+        image: quay.io/minio/directpv@sha256:dfce1cb76d6d4d0e3e74eb78b151727223b0651f143863cc8a73663b23bc02fb #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "directpv" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         name: controller

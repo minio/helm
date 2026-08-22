@@ -20,7 +20,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-version="5.1.2"
+version="5.1.3"
 
 function init() {
     # Check for root privileges first

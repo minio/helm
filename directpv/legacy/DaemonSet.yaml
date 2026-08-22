@@ -53,7 +53,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: spec.nodeName
-        image: quay.io/minio/csi-node-driver-registrar@sha256:183b3ac969d133457595fa2abfd9d81d20e83a6bc4606375662d036f56462dde #HELM-#
+        image: quay.io/minio/csi-node-driver-registrar@sha256:9188486550743b7f1f8b387ec60e81ada54fc2cdf03e9f27682dcb99f8d0dece #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "csiNodeDriverRegistrar" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         name: node-driver-registrar
@@ -95,7 +95,7 @@ spec:
               fieldPath: spec.nodeName
         - name: CSI_ENDPOINT
           value: unix:///csi/csi.sock
-        image: quay.io/minio/directpv@sha256:1add60387c6714470907ef109711042947959de6bc80ddd02107e76fa79abaa2 #HELM-#
+        image: quay.io/minio/directpv@sha256:dfce1cb76d6d4d0e3e74eb78b151727223b0651f143863cc8a73663b23bc02fb #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "directpv" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         livenessProbe:
@@ -155,7 +155,7 @@ spec:
       - args:
         - --csi-address=/csi/csi.sock
         - --health-port=9898
-        image: quay.io/minio/livenessprobe@sha256:af8bac7b24bbfcc064e58d45c1c2ebaf75b9ac71315a604e0870100fa6aed8da #HELM-#
+        image: quay.io/minio/livenessprobe@sha256:471eff92da0a2112417919f18e5636897fe4adb05d3160134e9124e97fc84e4f #HELM-#
         #HELM+# image: {{ include "directpv.resolveImage" (dict "name" "livenessprobe" "root" $) }}
         #HELM+# imagePullPolicy: {{ $.Values.images.pullPolicy }}
         name: liveness-probe
