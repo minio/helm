@@ -40,13 +40,25 @@ When you add the repo, you can see the available charts with the following comma
 helm search repo minio
 ```
 
-## AIStor Volume Manager
+### Deprecated charts
+
+MinIO no longer updates the following charts. Use the replacement chart for new installations.
+
+| Deprecated chart              | Replacement chart  |
+|-------------------------------|--------------------|
+| `aistor-objectstore-operator` | `aistor-operator`  |
+| `aistor-keymanager-operator`  | `minkms-operator`  |
+| `aistor-keymanager`           | `minkms`           |
+| `aistor-volumemanager`        | `directpv`         |
+
+All published versions of the deprecated charts stay in this repository, so existing installations keep working.
+
+## AIStor DirectPV
 
 DirectPV is a CSI driver for Direct Attached Storage. In a simpler sense, it is a distributed persistent volume manager, and not a storage system like SAN or NAS.
 
 ```shell
-helm install directpv minio/aistor-volumemanager \
-  --set license="<your-license-key>"
+helm install directpv minio/directpv
 ```
 
 ## AIStor Server
@@ -56,21 +68,21 @@ helm install directpv minio/aistor-volumemanager \
 Install the Object Store Operator and its supporting resources.
 
 ```shell
-helm install aistor minio/aistor-objectstore-operator \
+helm install aistor minio/aistor-operator \
   --namespace aistor --create-namespace \
   --set license="<your-license-key>"
 ```
 
 ### License Configuration
 
-To use the `aistor-objectstore-operator`, you must pass a valid license via the `license` field.
+To use the `aistor-operator`, you must pass a valid license via the `license` field.
 
 > **Important:** Do **not** pass the encrypted license block (starts with `ZXlK...`). The operator expects a **valid JWT string** (typically starts with `eyJ...`).
 
 #### Correct usage (decoded JWT):
 
 ```shell
-helm install aistor minio/aistor-objectstore-operator \
+helm install aistor minio/aistor-operator \
   --namespace aistor --create-namespace \
   --set license="eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9..."
 ```
@@ -78,7 +90,7 @@ helm install aistor minio/aistor-objectstore-operator \
 #### Incorrect usage (encrypted blob):
 
 ```shell
-helm install aistor minio/aistor-objectstore-operator \
+helm install aistor minio/aistor-operator \
   --namespace aistor --create-namespace \
   --set license="ZXlKaGJHY2lPaUpGVXpNNE5DSXNJ..."
 ```
@@ -102,10 +114,8 @@ A highly available, powerful and operationally simple key management server opti
 ## AIStor Key Manager Operator
 
 ```shell
-helm install keymanager-operator minio/aistor-keymanager-operator \
-  --namespace keymanager \
-  --create-namespace  \
-  --set license="<your-license-key>"
+helm install keymanager-operator minio/minkms-operator \
+  --namespace keymanager --create-namespace
 ```
 
 ### Create HSM key
@@ -122,27 +132,26 @@ The command prints the generated HSM key to stdout, for example:
 hsm:aes256:HSMKEYVALUE
 ```
 
-### Install KeyManager
+### Install MinKMS
 
 Deploy the Key Manager. Replace the `HSMKEYVALUE` in the example with the value from the previous step.
 
 ```shell
-helm install my-keymanager minio/aistor-keymanager \
+helm install my-keymanager minio/minkms \
   --namespace my-keymanager \
   --create-namespace \
-  --set  keyManager.hsm.key="hsm:aes256:HSMKEYVALUE"
+  --set minkms.hsm.key="hsm:aes256:HSMKEYVALUE"
 ```
 
 ## AIStor WARP Operator
 
 The AIStor WARP Operator is responsible for managing the AIStor WARP.
 To install the AIStor WARP Operator, you can use the following command to opt-in to the AIStor WARP Operator in the
-`minio/aistor-objectstore-operator` Helm chart:
+`minio/aistor-operator` Helm chart:
 
 ```shell
-helm install aistor minio/aistor-objectstore-operator \
-  --namespace aistor \
-  --create-namespace \
+helm install aistor minio/aistor-operator \
+  --namespace aistor --create-namespace \
   --set license="<your-license-key>" \
   --set operators.object-store.disabled=true \
   --set operators.adminjob.disabled=true \
