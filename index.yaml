@@ -1939,6 +1939,26 @@ entries:
       version: 1.2.0
   sidekick-operator:
     - apiVersion: v2
+      appVersion: v20261027090825.0.0
+      created: "2026-10-29T09:35:35.206721+01:00"
+      description: Helm chart for the MinIO AIStor Sidekick sidecar injection operator
+      digest: f43fb2d861284f319c7791a2049f93a92ec0c4e6a2325d1a6866afd3b510d688
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Load Balancer
+        - Sidekick
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: sidekick-operator
+      sources:
+        - https://github.com/minio/sidekick
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/sidekick-operator-1.1.0.tgz
+      version: 1.1.0
+    - apiVersion: v2
       appVersion: v20260714215022.0.0
       created: "2026-07-15T00:46:52.15401+02:00"
       description: Helm chart for the MinIO AIStor Sidekick sidecar injection operator
@@ -1969,4 +1989,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-10-21T13:15:49.896468+02:00"
+generated: "2026-10-29T09:35:35.150784+01:00"
