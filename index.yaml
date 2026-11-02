@@ -736,6 +736,28 @@ entries:
       version: 4.0.0
   aistor-operator:
     - apiVersion: v2
+      appVersion: v20261029184737.0.0
+      created: "2026-11-02T13:52:00.29669+01:00"
+      description: Helm chart for MinIO AIStor operators
+      digest: 3c28f0e8f4e1d3d47cad0aa7bae669ad57d3cc654ead7b6e2303b7b94bff9be1
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Enterprise Object Storage
+        - storage
+        - object-storage
+        - S3
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: aistor-operator
+      sources:
+        - https://min.io/product/aistor-overview
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/aistor-operator-6.2.0.tgz
+      version: 6.2.0
+    - apiVersion: v2
       appVersion: v20261014041630.0.0
       created: "2026-10-14T10:19:58.972607+02:00"
       description: Helm chart for MinIO AIStor operators
@@ -1615,6 +1637,25 @@ entries:
       version: 1.0.0-rc.1
   minkms-operator:
     - apiVersion: v2
+      appVersion: v20261029184737.0.0
+      created: "2026-11-02T13:52:00.307035+01:00"
+      description: Helm chart for MinIO AIStor Key Manager operator
+      digest: 92e344ddb8e6719e5e3dfa06fdb79094cb47ddf22a9125cad2fa1bb1706d7e71
+      home: https://min.io
+      icon: https://helm.min.io/logo.png
+      keywords:
+        - Key Management
+      maintainers:
+        - email: dev@minio.io
+          name: MinIO, Inc
+      name: minkms-operator
+      sources:
+        - https://min.io/product/aistor/key-management-server
+      type: application
+      urls:
+        - https://helm.min.io/helm-releases/minkms-operator-1.13.0.tgz
+      version: 1.13.0
+    - apiVersion: v2
       appVersion: v20261014041630.0.0
       created: "2026-10-14T10:19:58.981055+02:00"
       description: Helm chart for MinIO AIStor Key Manager operator
@@ -1989,4 +2030,4 @@ entries:
       urls:
         - https://helm.min.io/helm-releases/warp-0.1.0.tgz
       version: 0.1.0
-generated: "2026-10-29T09:35:35.150784+01:00"
+generated: "2026-11-02T13:52:00.235594+01:00"
